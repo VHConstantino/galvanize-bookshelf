@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 'use strict';
 
 process.env.NODE_ENV = 'test';
@@ -40,8 +38,8 @@ suite('part3 routes', () => {
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json')
       .send({
-        firstName: 'John',
-        lastName: 'Siracusa',
+        first_name: 'John',
+        last_name: 'Siracusa',
         email: 'john.siracusa@gmail.com',
         password
       })
@@ -52,8 +50,8 @@ suite('part3 routes', () => {
       })
       .expect(200, {
         id: 2,
-        firstName: 'John',
-        lastName: 'Siracusa',
+        first_name: 'John',
+        last_name: 'Siracusa',
         email: 'john.siracusa@gmail.com'
       })
       .end((httpErr, _res) => {
@@ -78,7 +76,6 @@ suite('part3 routes', () => {
               email: 'john.siracusa@gmail.com'
             });
 
-            // eslint-disable-next-line no-sync
             const isMatch = bcrypt.compareSync(password, hashedPassword);
 
             assert.isTrue(isMatch, "passwords don't match");
